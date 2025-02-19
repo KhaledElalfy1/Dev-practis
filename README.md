@@ -13,7 +13,7 @@ A new Flutter project that I will apply the concepts I have learned in the advan
     - [ ] API Service
 
 - [ ] Flavors
-    - [ ] Android
+    - [x] Android
     - [ ] iOS
 
 - [ ] CI/CD
