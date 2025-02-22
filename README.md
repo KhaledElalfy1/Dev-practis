@@ -7,14 +7,14 @@ A new Flutter project that I will apply the concepts I have learned in the advan
 
 - [ ] code generation
 
-- [ ] Network Layer
-    - [ ] Dio
-    - [ ] error handler
-    - [ ] API Service
+- [x] Network Layer
+    - [x] Dio
+    - [x] error handler
+    - [x] API Service
 
-- [ ] Flavors
+- [x] Flavors
     - [x] Android
-    - [ ] iOS
+    - [x] iOS
 
 - [ ] CI/CD
     - [ ] fastlane
