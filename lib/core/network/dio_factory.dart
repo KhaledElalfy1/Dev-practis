@@ -50,13 +50,6 @@ class DioFactory {
       responseBody: true,
       responseHeader: true,
       request: true,
-      filter: (options, args) {
-        options.headers.addAll({
-          'Content-Type': 'application/json',
-          'authorized': 'Bearer ${'token'}',
-        });
-        return true;
-      },
     );
   }
 }
