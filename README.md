@@ -12,9 +12,9 @@ A new Flutter project that I will apply the concepts I have learned in the advan
     - [ ] error handler
     - [ ] API Service
 
-- [ ] Flavors
+- [x] Flavors
     - [x] Android
-    - [ ] iOS
+    - [x] iOS
 
 - [ ] CI/CD
     - [ ] fastlane
