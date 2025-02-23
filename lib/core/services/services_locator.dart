@@ -1,3 +1,4 @@
+import 'package:dev_practice/core/cache/shared_pref_helper.dart';
 import 'package:dev_practice/core/network/api_consumer.dart';
 import 'package:dev_practice/core/network/dio_consumer.dart';
 import 'package:dev_practice/core/network/dio_factory.dart';
@@ -13,4 +14,6 @@ void setup() {
 
   getIt.registerLazySingleton<SignInRepo>(
       () => SignInRepo(apiConsumer: getIt<ApiConsumer>()));
+
+  getIt.registerLazySingleton<SharedPrefHelper>(() => SharedPrefHelper(),);
 }
