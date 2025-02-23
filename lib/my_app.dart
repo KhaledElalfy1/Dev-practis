@@ -1,4 +1,5 @@
-import 'package:dev_practice/features/sign_in/presentation/view/sign_in_screen.dart';
+import 'package:dev_practice/core/routes/app_router.dart';
+import 'package:dev_practice/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,7 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignInScreen(),
+      initialRoute: Routes.login,
+      onGenerateRoute:AppRouter.onGenerateRoute,
     );
   }
 }

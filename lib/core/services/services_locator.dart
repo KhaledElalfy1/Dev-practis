@@ -1,0 +1,16 @@
+import 'package:dev_practice/core/network/api_consumer.dart';
+import 'package:dev_practice/core/network/dio_consumer.dart';
+import 'package:dev_practice/core/network/dio_factory.dart';
+import 'package:dev_practice/features/sign_in/data/repository/sign_in_repo.dart';
+import 'package:get_it/get_it.dart';
+
+final getIt = GetIt.instance;
+
+void setup() {
+  getIt.registerLazySingleton<ApiConsumer>(
+    () => DioConsumer(dio: DioFactory.getDio()),
+  );
+
+  getIt.registerLazySingleton<SignInRepo>(
+      () => SignInRepo(apiConsumer: getIt<ApiConsumer>()));
+}
