@@ -1,6 +1,7 @@
-import 'package:dev_practice/features/profile/presentation/view/profile_screen.dart';
-import 'package:dev_practice/core/widgets/custom_form_button.dart';
+import 'package:dev_practice/features/sign_in/presentation/view/widgets/sing_in_button_bloc_consumer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dev_practice/core/widgets/custom_input_field.dart';
+import 'package:dev_practice/features/sign_in/presentation/logic/sign_in_cubit/sign_in_cubit.dart';
 import 'package:dev_practice/features/sign_in/presentation/view/widgets/dont_have_an_account.dart';
 import 'package:dev_practice/features/sign_in/presentation/view/widgets/forget_password_widget.dart';
 import 'package:dev_practice/features/sign_in/presentation/view/widgets/page_header.dart';
@@ -13,6 +14,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final cubit = context.read<SignInCubit>();
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffEEF1F3),
@@ -29,7 +31,7 @@ class SignInScreen extends StatelessWidget {
                 ),
                 child: SingleChildScrollView(
                   child: Form(
-                   // TODO add key
+                    key: cubit.formKey,
                     child: Column(
                       children: [
                         const PageHeading(title: 'Sign-in'),
@@ -37,7 +39,7 @@ class SignInScreen extends StatelessWidget {
                         CustomInputField(
                           labelText: 'Email',
                           hintText: 'Your email',
-                           controller: TextEditingController(),
+                          controller: cubit.emailController,
                         ),
                         const SizedBox(height: 16),
                         //!Password
@@ -46,24 +48,14 @@ class SignInScreen extends StatelessWidget {
                           hintText: 'Your password',
                           obscureText: true,
                           suffixIcon: true,
-                           controller: TextEditingController(),
+                          controller: cubit.passwordController,
                         ),
                         const SizedBox(height: 16),
                         //! Forget password?
                         ForgetPasswordWidget(size: size),
                         const SizedBox(height: 20),
                         //!Sign In Button
-                        CustomFormButton(
-                          innerText: 'Sign In',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProfileScreen(),
-                              ),
-                            );
-                          },
-                        ),
+                        const SignInButtonBlocConsumer(),
                         const SizedBox(height: 18),
                         //! Dont Have An Account ?
                         DontHaveAnAccountWidget(size: size),
@@ -80,3 +72,4 @@ class SignInScreen extends StatelessWidget {
     );
   }
 }
+
