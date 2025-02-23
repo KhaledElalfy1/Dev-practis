@@ -2,7 +2,7 @@ import 'package:dev_practice/core/network/api_error_model.dart';
 import 'package:dio/dio.dart';
 
 class ApiErrorHandler {
-  ApiErrorModel handler(dynamic error) {
+static  ApiErrorModel handler(dynamic error) {
     if (error is DioException) {
       switch (error.type) {
         case DioExceptionType.connectionTimeout:
@@ -14,7 +14,7 @@ class ApiErrorHandler {
         case DioExceptionType.badCertificate:
           return ApiErrorModel(message: 'Bad Certificate');
         case DioExceptionType.badResponse:
-          return handle(error);
+          return _handle(error);
         case DioExceptionType.cancel:
           return ApiErrorModel(message: 'Request Cancelled');
         case DioExceptionType.connectionError:
@@ -27,7 +27,7 @@ class ApiErrorHandler {
     }
   }
 
-  ApiErrorModel handle(error) {
+ static ApiErrorModel _handle(error) {
     switch (error.response.statusCode) {
       case 400:
         return ApiErrorModel(message: 'Bad Request');
