@@ -1,3 +1,4 @@
+import 'package:dev_practice/core/network/api_endpoints.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
@@ -15,7 +16,7 @@ class DioFactory {
       _dio!.options
         ..connectTimeout = connectTimeout
         ..receiveTimeout = receiveTimeout
-        ..baseUrl = '';
+        ..baseUrl = ApiEndPoints.baseUrl;
       _dio!.interceptors
         ..add(_dioInterceptors())
         ..add(_dioInterceptorWrapper());
@@ -30,7 +31,7 @@ class DioFactory {
       onRequest: (options, handler) {
         // options.headers.addAll({
         //   'Content-Type': 'application/json',
-        //   'authorized': 'Bearer ${'token'}',
+        //   'token': 'FOODAPI ${'token'}',
         // });
         return handler.next(options);
       },
