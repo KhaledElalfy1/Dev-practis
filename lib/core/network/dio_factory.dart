@@ -1,3 +1,5 @@
+import 'package:dev_practice/core/cache/cache_keys.dart';
+import 'package:dev_practice/core/cache/secure_storage.dart';
 import 'package:dev_practice/core/network/api_endpoints.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -29,10 +31,10 @@ class DioFactory {
   static InterceptorsWrapper _dioInterceptorWrapper() {
     return InterceptorsWrapper(
       onRequest: (options, handler) {
-        // options.headers.addAll({
-        //   'Content-Type': 'application/json',
-        //   'token': 'FOODAPI ${'token'}',
-        // });
+        options.headers.addAll({
+          'Content-Type': 'application/json',
+          'token': 'FOODAPI ${SecureStorage.instance.getData(key: CacheKeys.token)}',
+        });
         return handler.next(options);
       },
       onResponse: (response, handler) {
