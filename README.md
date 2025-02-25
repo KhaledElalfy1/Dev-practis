@@ -3,9 +3,9 @@
 A new Flutter project that I will apply the concepts I have learned in the advanced course.
 
 ## Topics
-- [ ] MVVM
+- [x] MVVM
 
-- [ ] code generation
+- [x] code generation
 
 - [x] Network Layer
     - [x] Dio
@@ -21,7 +21,7 @@ A new Flutter project that I will apply the concepts I have learned in the advan
     - [ ] Github Actions
 
 
-- [ ] Caching Token    
+- [x] Caching Token    
 
 
 ```bash
