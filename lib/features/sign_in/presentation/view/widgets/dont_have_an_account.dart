@@ -1,5 +1,6 @@
-import 'package:dev_practice/features/sign_up/presentation/view/sign_up_screen.dart';
+import 'package:dev_practice/core/routes/routes.dart';
 import 'package:flutter/material.dart';
+
 class DontHaveAnAccountWidget extends StatelessWidget {
   const DontHaveAnAccountWidget({
     super.key,
@@ -23,14 +24,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           GestureDetector(
-            onTap: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SignUpScreen(),
-                ),
-              )
-            },
+            onTap: () =>Navigator.pushNamed(context, Routes.register),
             child: const Text(
               'Sign-up',
               style: TextStyle(
