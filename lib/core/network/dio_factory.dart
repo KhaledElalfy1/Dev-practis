@@ -33,7 +33,7 @@ class DioFactory {
       onRequest: (options, handler) async {
         final token=await SecureStorage.instance.getData(key: CacheKeys.token);
         options.headers.addAll({
-          'token':"FOODAPI $token",
+          'token':token==null?null:"FOODAPI $token",
         });
         return handler.next(options);
       },
