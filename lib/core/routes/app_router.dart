@@ -1,5 +1,7 @@
 import 'package:dev_practice/core/routes/routes.dart';
 import 'package:dev_practice/core/services/services_locator.dart';
+import 'package:dev_practice/features/profile/data/repository/profile_repo.dart';
+import 'package:dev_practice/features/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:dev_practice/features/profile/presentation/view/profile_screen.dart';
 import 'package:dev_practice/features/sign_in/data/repository/sign_in_repo.dart';
 import 'package:dev_practice/features/sign_in/presentation/logic/sign_in_cubit/sign_in_cubit.dart';
@@ -20,7 +22,12 @@ class AppRouter {
       case Routes.register:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case Routes.profile:
-        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) =>
+                      ProfileCubit(getIt<ProfileRepo>())..profileEmitter(),
+                  child: const ProfileScreen(),
+                ));
       default:
         return null;
     }

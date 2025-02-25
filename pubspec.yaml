@@ -43,6 +43,7 @@ dependencies:
   jwt_decode: ^0.3.1
   pretty_dio_logger: ^1.4.0
   shared_preferences: ^2.5.2
+  shimmer: ^3.0.0
 
 dev_dependencies:
   build_runner: ^2.4.13
