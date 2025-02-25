@@ -5,10 +5,8 @@ abstract class ApiEndPoints {
   static const String checkEmail = "user/check-email";
   static const String checkUsername = "user/check-username";
   static const String updateUser = "user/update";
-  static const String getProfile = "user/profile";
+  static const String getProfile = "user/get-user";
   static const String deleteUser = "user/delete";
   static const String getUserData = "user/get-user";
   static const String logout = "user/logout";
-
-
 }

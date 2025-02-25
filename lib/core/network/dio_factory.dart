@@ -30,10 +30,10 @@ class DioFactory {
 
   static InterceptorsWrapper _dioInterceptorWrapper() {
     return InterceptorsWrapper(
-      onRequest: (options, handler) {
+      onRequest: (options, handler) async {
+        final token=await SecureStorage.instance.getData(key: CacheKeys.token);
         options.headers.addAll({
-          'Content-Type': 'application/json',
-          'token': 'FOODAPI ${SecureStorage.instance.getData(key: CacheKeys.token)}',
+          'token':"FOODAPI $token",
         });
         return handler.next(options);
       },
