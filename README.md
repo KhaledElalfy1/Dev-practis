@@ -23,7 +23,7 @@ A new Flutter project that I will apply the concepts I have learned in the advan
 
 - [x] Caching Token    
 
-
+*for code generation*
 ```bash
-dart  run build_runner build --delete-conflicting-outputs
+dart run build_runner build --delete-conflicting-outputs
 ```
