@@ -4,9 +4,7 @@ on:
     push:
         branches:
             - master
-    pull_request:
-        branches:
-            - master
+
 
 jobs:
     build:
@@ -18,25 +16,25 @@ jobs:
         
         - name: Install java 17
           uses: actions/setup-java@v4
-            with:
-              java-version: '17'
-              distribution: 'temurin'
+          with:
+            java-version: '17'
+            distribution: 'temurin'
 
         - name : Install flutter
           uses: subosito/flutter-action@v2
-            with:
-                flutter-version: '3.24.5'
-                cache: true
+          with:
+            flutter-version: '3.24.5'
+            cache: true
         
         - name : Install dependencies
           run: flutter pub get      
 
         - name: Setup ruby
           uses: ruby/setup-ruby@v1
-            with:
-                ruby-version: '3.3.6'   
-                bundler-cache: true
-                working-directory: android 
+          with:
+            ruby-version: '3.3.6'   
+            bundler-cache: true
+            working-directory: android 
                 
                 
         - name: Build app and distribute
