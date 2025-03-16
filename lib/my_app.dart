@@ -1,4 +1,6 @@
-import 'package:dev_practice/features/sign_in/presentation/view/sign_in_screen.dart';
+import 'package:dev_practice/core/constants/constants.dart';
+import 'package:dev_practice/core/routes/app_router.dart';
+import 'package:dev_practice/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -6,9 +8,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignInScreen(),
+      initialRoute: getInitialRoute(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
     );
+  }
+
+  String getInitialRoute() {
+    if (isTokenCached) {
+      return Routes.profile;
+    } else {
+      return Routes.login;
+    }
   }
 }
