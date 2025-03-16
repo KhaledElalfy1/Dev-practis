@@ -42,12 +42,19 @@ jobs:
 
         - name: Get commit message
           id: commit_message
-          run: echo "MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+          run: |
+            echo "MESSAGE<<EOF" >> $GITHUB_ENV
+            git log -1 --pretty=%B >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+
+        - name: Skip workflow if not a release
+            if: "!contains(env.MESSAGE, 'apk release')"
+            run: echo "Skipping workflow as commit message does not contain 'apk release'." && exit 0
+  
         
           
 
         - name: Build app and distribute
-          if:  contains(env.MESSAGE, 'apk release')
           env:
             FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
           run: |
