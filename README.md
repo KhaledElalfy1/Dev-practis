@@ -16,9 +16,9 @@ A new Flutter project that I will apply the concepts I have learned in the advan
     - [x] Android
     - [x] iOS
 
-- [ ] CI/CD
-    - [ ] fastlane
-    - [ ] Github Actions
+- [x] CI/CD
+    - [x] fastlane
+    - [x] Github Actions
 
 
 - [x] Caching Token    
