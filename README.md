@@ -25,7 +25,7 @@ A new Flutter project that I will apply the concepts I have learned in the advan
 
 all the topics above are implemented in this project ✅.
 
-*for code generation*
+**for code generation**
 ```bash
 dart run build_runner build --delete-conflicting-outputs
 ```
